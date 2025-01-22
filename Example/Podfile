@@ -1,0 +1,8 @@
+use_frameworks!
+
+platform :ios, '11.0'
+
+target 'XTableView_Example' do
+  pod 'XTableView', :path => '../'
+  pod 'SnapKit'
+end
