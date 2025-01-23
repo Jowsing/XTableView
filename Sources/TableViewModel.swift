@@ -23,7 +23,7 @@ open class TableViewModel: NSObject, UITableViewDataSource, UITableViewDelegate 
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource[section].rows.count
+        return self.dataSource[section].count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

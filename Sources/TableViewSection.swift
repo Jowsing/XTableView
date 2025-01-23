@@ -24,6 +24,10 @@ public class TableViewSection {
         return self.rows.count
     }
     
+    public var isEmpty: Bool {
+        return self.rows.isEmpty
+    }
+    
     public init(_ rows: [any TableViewRowable] = []) {
         self.rows = rows
     }
@@ -51,7 +55,16 @@ public class TableViewSection {
     
     // MARK: - Row
     
-    private(set) var rows: [any TableViewRowable]
+    private var rows: [any TableViewRowable]
+    
+    public subscript(index: Int) -> any TableViewRowable {
+        get {
+            return self.rows[index]
+        }
+        set(row) {
+            self.rows[index] = row
+        }
+    }
     
     public func append(_ row: any TableViewRowable) {
         self.rows.append(row)
@@ -71,7 +84,7 @@ public class TableViewSection {
 extension TableViewDataSource {
     
     public func row(at indexPath: IndexPath) -> any TableViewRowable {
-        return self[indexPath.section].rows[indexPath.row]
+        return self[indexPath.section][indexPath.row]
     }
     
     @discardableResult
