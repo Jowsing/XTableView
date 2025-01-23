@@ -102,16 +102,22 @@ extension TableViewSection {
         
         init(_ model: Model) {
             self.model = model
+            self.layoutRects()
+        }
+        
+        open func layoutRects() {
+            
+        }        
+        
+        open func view(for tableView: UITableView, at section: Int) -> UITableViewHeaderFooterView {
+            self.section = section
+            let view = tableView.dequeueReusableHeaderFooterView(View.self)
+            self.bind(to: view)
+            return view
         }
         
         open func bind(to view: View) {
             view.configure(model)
-        }
-        
-        public func view(for tableView: UITableView, at section: Int) -> UITableViewHeaderFooterView {
-            let view = tableView.dequeueReusableHeaderFooterView(View.self)
-            self.bind(to: view)
-            return view
         }
     }
 }

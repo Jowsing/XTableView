@@ -28,6 +28,8 @@ open class TableViewRow<Model, Cell: TableViewCell<Model>>: TableViewRowable {
     
     public var estimatedHeight: CGFloat = .zero
     
+    public var indexPath: IndexPath?
+    
     public var swipeActionsConfiguration: UISwipeActionsConfiguration?
     
     
@@ -43,6 +45,7 @@ open class TableViewRow<Model, Cell: TableViewCell<Model>>: TableViewRowable {
     }
     
     open func cell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        self.indexPath = indexPath
         let cell = tableView.dequeueReusableCell(Cell.self, indexPath: indexPath)
         self.bindTo(cell)
         return cell

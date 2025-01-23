@@ -15,9 +15,6 @@ open class TableViewModel: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     public var sectionIndexTitles: [String]?
     
-    // MARK: - Property (retain)
-    
-    
     
     // MARK: - UITableView DataSource
     
