@@ -29,46 +29,34 @@ public extension UITableView {
         self.reloadData()
     }
     
-    func register<T: UITableViewCell>(_ cellClass: T.Type) {
+    func register<T: UITableViewCell>(_ cellClass: T.Type, extra: String = "") {
         let reuseIdentifier = cellClass.reuseIdentifier
         register(cellClass, forCellReuseIdentifier: reuseIdentifier)
     }
 
-    func registerNib<T: UITableViewCell>(cellClass: T.Type) {
-        let reuseIdentifier = cellClass.reuseIdentifier
-        let nib = UINib(nibName: reuseIdentifier, bundle: nil)
-        register(nib, forCellReuseIdentifier: reuseIdentifier)
-    }
-
-    func register<T: UITableViewHeaderFooterView>(_ viewClass: T.Type) {
+    func register<T: UITableViewHeaderFooterView>(_ viewClass: T.Type, extra: String = "") {
         let reuseIdentifier = viewClass.reuseIdentifier
         register(viewClass, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
     }
 
-    func registerNib<T: UITableViewHeaderFooterView>(_ forHeaderFooterViewClass: T.Type) {
-        let reuseIdentifier = forHeaderFooterViewClass.reuseIdentifier
-        let nib = UINib(nibName: reuseIdentifier, bundle: nil)
-        register(nib, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
-    }
-
-    func dequeueReusableCell<T: UITableViewCell>(_ cellClass: T.Type) -> T {
-        let cell = dequeueReusableCell(withIdentifier: cellClass.reuseIdentifier)
+    func dequeueReusableCell<T: UITableViewCell>(_ cellClass: T.Type, extra: String = "") -> T {
+        let cell = dequeueReusableCell(withIdentifier: cellClass.reuseIdentifier + extra)
         guard let cellType = cell as? T else {
             fatalError("Unable to dequeue:\(cellClass)")
         }
         return cellType
     }
 
-    func dequeueReusableCell<T: UITableViewCell>(_ cellClass: T.Type, indexPath: IndexPath) -> T {
-        let cell = dequeueReusableCell(withIdentifier: cellClass.reuseIdentifier, for: indexPath)
+    func dequeueReusableCell<T: UITableViewCell>(_ cellClass: T.Type, indexPath: IndexPath, extra: String = "") -> T {
+        let cell = dequeueReusableCell(withIdentifier: cellClass.reuseIdentifier + extra, for: indexPath)
         guard let cellType = cell as? T else {
             fatalError("Unable to dequeue:\(cellClass)")
         }
         return cellType
     }
 
-    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ viewClass: T.Type) -> T {
-        let view = dequeueReusableHeaderFooterView(withIdentifier: viewClass.reuseIdentifier)
+    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ viewClass: T.Type, extra: String = "") -> T {
+        let view = dequeueReusableHeaderFooterView(withIdentifier: viewClass.reuseIdentifier + extra)
         guard let viewType = view as? T else {
             fatalError("Unable to dequeue:\(viewClass)")
         }

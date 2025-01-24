@@ -22,6 +22,10 @@ open class TableViewRow<Model, Cell: TableViewCell<Model>>: TableViewRowable {
     
     // MARK: - Property
     
+    open var identifierExtra: String {
+        return ""
+    }
+    
     open var model: Model
     
     public var height: CGFloat = .zero
@@ -31,6 +35,7 @@ open class TableViewRow<Model, Cell: TableViewCell<Model>>: TableViewRowable {
     public var indexPath: IndexPath?
     
     public var swipeActionsConfiguration: UISwipeActionsConfiguration?
+    
     
     
     // MARK: - Life Cycle
@@ -44,14 +49,19 @@ open class TableViewRow<Model, Cell: TableViewCell<Model>>: TableViewRowable {
         
     }
     
+    open func updateRects(for cell: Cell) {
+        
+    }
+    
     open func cell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         self.indexPath = indexPath
-        let cell = tableView.dequeueReusableCell(Cell.self, indexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(Cell.self, indexPath: indexPath, extra: identifierExtra)
         self.bindTo(cell)
         return cell
     }
     
     open func bindTo(_ cell: Cell) {
+        self.updateRects(for: cell)
         cell.configure(model)
     }
 }

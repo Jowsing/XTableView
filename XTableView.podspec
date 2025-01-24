@@ -29,6 +29,8 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'Sources/**/*'
   
-  s.swift_version = '5'
+  s.swift_version = ['5.0']
+  
+  s.ios.deployment_target = "11.0"
   
 end
