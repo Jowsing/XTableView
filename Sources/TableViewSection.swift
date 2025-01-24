@@ -11,10 +11,10 @@ public typealias TableViewDataSource = Array<TableViewSection>
 
 public class TableViewSection {
     
-    public var headerHeight: CGFloat = CGFloat.leastNonzeroMagnitude
-    public var footerHeight: CGFloat = CGFloat.leastNonzeroMagnitude
-    public var estimatedHeaderHeight: CGFloat = CGFloat.leastNonzeroMagnitude
-    public var estimatedFooterHeight: CGFloat = CGFloat.leastNonzeroMagnitude
+    public var headerHeight: CGFloat = .leastNonzeroMagnitude
+    public var footerHeight: CGFloat = .leastNonzeroMagnitude
+    public var estimatedHeaderHeight: CGFloat = .zero
+    public var estimatedFooterHeight: CGFloat = .zero
     
     public var key: String?
     

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XTableView'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'A short description of XTableView.'
 
 # This description is used to generate tags and improve search results.
@@ -26,8 +26,6 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jowsing' => 'jowsing169@gmail.com' }
   s.source           = { :git => 'https://github.com/jowsing/XTableView.git', :tag => s.version.to_s }
-
-  s.ios.deployment_target = '11.0'
 
   s.source_files = 'Sources/**/*'
   
