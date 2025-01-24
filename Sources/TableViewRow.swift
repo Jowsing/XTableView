@@ -10,9 +10,7 @@ import UIKit
 public protocol TableViewRowable {
     
     var height: CGFloat { get set }
-    
-    var estimatedHeight: CGFloat { get set }
-    
+        
     var swipeActionsConfiguration: UISwipeActionsConfiguration? { get set }
     
     func cell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
@@ -29,9 +27,7 @@ open class TableViewRow<Model, Cell: TableViewCell<Model>>: TableViewRowable {
     open var model: Model
     
     public var height: CGFloat = .zero
-    
-    public var estimatedHeight: CGFloat = .zero
-    
+        
     public var indexPath: IndexPath?
     
     public var swipeActionsConfiguration: UISwipeActionsConfiguration?

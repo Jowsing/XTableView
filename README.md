@@ -101,7 +101,7 @@ class MenuViewRow: TableViewRow<String, TitleViewCell> {
         let titleW = UIScreen.main.bounds.width - 30
         let titleH = model.boundingSize(with: CGSize(width: titleW, height: .greatestFiniteMagnitude), font: UIFont.systemFont(ofSize: 17)).height
         self.titleRect = CGRect.init(x: 15, y: 15, width: titleW, height: titleH)
-        self.cellHeight = titleRect.maxY + 15
+        self.height = titleRect.maxY + 15
     }
     
     override func bindTo(_ cell: MenuViewCell) {
@@ -128,7 +128,6 @@ class TitleViewCell2: TitleViewCell {
 class BlogViewRow: TableViewRow<String, TitleViewCell2> {
         
     override func layoutRects() {
-        self.estimatedHeight = 60
         self.height = UITableViewAutomaticDimension
     }
 }

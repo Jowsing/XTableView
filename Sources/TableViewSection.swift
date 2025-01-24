@@ -13,8 +13,6 @@ public class TableViewSection {
     
     public var headerHeight: CGFloat = .leastNonzeroMagnitude
     public var footerHeight: CGFloat = .leastNonzeroMagnitude
-    public var estimatedHeaderHeight: CGFloat = .zero
-    public var estimatedFooterHeight: CGFloat = .zero
     
     public var key: String?
     

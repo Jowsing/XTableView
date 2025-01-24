@@ -103,7 +103,6 @@ class MenuViewRow: TableViewRow<String, TitleViewCell> {
 class BlogViewRow: TableViewRow<String, TitleViewCell2> {
         
     override func layoutRects() {
-        self.estimatedHeight = 60
         self.height = UITableViewAutomaticDimension
     }
 }

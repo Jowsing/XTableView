@@ -62,17 +62,6 @@ open class TableViewModel: NSObject, UITableViewDataSource, UITableViewDelegate 
         return self.dataSource[section].footerHeight
     }
     
-    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.dataSource.row(at: indexPath).estimatedHeight
-    }
-    
-    public func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return self.dataSource[section].estimatedHeaderHeight
-    }
-    
-    public func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return self.dataSource[section].estimatedFooterHeight
-    }
     
     // MARK: Header & Footer
     
