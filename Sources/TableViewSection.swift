@@ -18,13 +18,7 @@ public class TableViewSection {
     
     public var index = 0
     
-    public var count: Int {
-        return self.rows.count
-    }
-    
-    public var isEmpty: Bool {
-        return self.rows.isEmpty
-    }
+    public var rows: [any TableViewRowable]
     
     public init(_ rows: [any TableViewRowable] = []) {
         self.rows = rows
@@ -51,38 +45,12 @@ public class TableViewSection {
         self.footer = HeaderFooter<Model, View>(model)
     }
     
-    // MARK: - Row
-    
-    private var rows: [any TableViewRowable]
-    
-    public subscript(index: Int) -> any TableViewRowable {
-        get {
-            return self.rows[index]
-        }
-        set(row) {
-            self.rows[index] = row
-        }
-    }
-    
-    public func append(_ row: any TableViewRowable) {
-        self.rows.append(row)
-    }
-    
-    public func insert(_ row: any TableViewRowable, at index: Int) {
-        self.rows.insert(row, at: index)
-    }
-    
-    @discardableResult
-    public func remove(at index: Int) -> any TableViewRowable {
-        return self.rows.remove(at: index)
-    }
-    
 }
 
 extension TableViewDataSource {
     
     public func row(at indexPath: IndexPath) -> any TableViewRowable {
-        return self[indexPath.section][indexPath.row]
+        return self[indexPath.section].rows[indexPath.row]
     }
     
     @discardableResult
@@ -91,10 +59,10 @@ extension TableViewDataSource {
             return nil
         }
         let section = self[indexPath.section]
-        guard indexPath.row < section.count else {
+        guard indexPath.row < section.rows.count else {
             return nil
         }
-        return section.remove(at: indexPath.row)
+        return section.rows.remove(at: indexPath.row)
     }
 }
 
