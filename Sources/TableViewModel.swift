@@ -87,15 +87,38 @@ open class TableViewModel: NSObject, UITableViewDataSource, UITableViewDelegate 
         return footer.view(for: tableView, at: section)
     }
     
-    // MARK: - DidSelectRowAt
+    // MARK: DidSelectRowAt
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // MARK: - Edting Actions
+    // MARK: Edting Actions
     
     open func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         return self.dataSource.row(at: indexPath).swipeActionsConfiguration
     }
+    
+    // MARK: - UIScrollView Delegate
+        
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+    }
+    
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+    }
+    
+    open func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        
+    }
+    
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+    }
+    
+    open func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        
+    }
+    
 }
