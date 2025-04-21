@@ -16,6 +16,12 @@ open class TableViewModel: NSObject, UITableViewDataSource, UITableViewDelegate 
     public var sectionIndexTitles: [String]?
     
     
+    // MARK: - Life Cycle
+    
+    public override init() {
+        super.init()
+    }
+    
     // MARK: - UITableView DataSource
     
     open func numberOfSections(in tableView: UITableView) -> Int {
